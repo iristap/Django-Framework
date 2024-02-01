@@ -1,0 +1,26 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block content %}
+<div>
+    <h1>post all</h1>
+    {% for post in posts%}
+        <div style="background-color: aquamarine;">   
+            <a href="{% url 'post' post.id %}">{{ post.title}} </a>
+            {% if post.status == 0 %}
+            <p>ต้องการ {{post.quantity}} คน</p>
+            {% elif post.status == 1 %}
+            <p>****คนเต็มแล้ว****</p>
+            {% endif %}
+            <p>{{ post.datestart | date:'j N Y '}}</p>
+
+        </div>
+    {% empty %}
+    <p>ไม่มี post</p>  
+    {% endfor %}
+
+
+</div>
+    
+
+
+{% endblock %}

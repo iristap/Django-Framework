@@ -1,0 +1,22 @@
+{% extends 'app_general/components/base.html' %}
+
+{% block content %}
+{% if post is not None %}
+
+<div style="background-color: rgb(0, 138, 92);">   
+    <h3>{{ post.title}}</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius laborum maiores vitae incidunt doloremque nesciunt facere aspernatur odit eos enim hic debitis vel commodi, eum culpa voluptas laudantium voluptatibus quis?</p>
+    {% if post.status == 0 %}
+    <p>ต้องการ {{post.quantity}} คน</p>
+    {% elif post.status == 1 %}
+    <p>****คนเต็มแล้ว****</p>
+    {% endif %}
+
+</div>
+
+
+
+{% else%}
+    <p>ไมพบ post นี้</p>
+{% endif %}
+{% endblock %}
